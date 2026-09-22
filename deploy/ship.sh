@@ -13,17 +13,28 @@ HEALTH_PATH="${6:-/}"
 
 : "${DEPLOY_HOST:?Defina DEPLOY_HOST}"
 : "${DEPLOY_USER:?Defina DEPLOY_USER}"
-: "${DEPLOY_SSH_KEY:?Defina DEPLOY_SSH_KEY}"
+: "${DEPLOY_SSH_PASSWORD:?Defina DEPLOY_SSH_PASSWORD}"
 
 PORT="${DEPLOY_PORT:-22}"
-KEY="$HOME/.ssh/deploy_key"
+
+if ! command -v sshpass >/dev/null 2>&1; then
+  sudo apt-get update -qq
+  sudo apt-get install -y -qq sshpass
+fi
 
 install -m 700 -d ~/.ssh
-printf '%s\n' "$DEPLOY_SSH_KEY" > "$KEY"
-chmod 600 "$KEY"
 ssh-keyscan -p "$PORT" -H "$DEPLOY_HOST" >> ~/.ssh/known_hosts
 
-SSH=(ssh -i "$KEY" -p "$PORT" -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes -o ServerAliveInterval=30)
+export SSHPASS="$DEPLOY_SSH_PASSWORD"
+SSH=(
+  sshpass -e ssh
+  -p "$PORT"
+  -o PreferredAuthentications=password
+  -o PubkeyAuthentication=no
+  -o NumberOfPasswordPrompts=1
+  -o StrictHostKeyChecking=yes
+  -o ServerAliveInterval=30
+)
 
 if ! docker image inspect "$IMAGE" >/dev/null 2>&1; then
   echo "Imagem local não encontrada: $IMAGE"
