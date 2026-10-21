@@ -1,11 +1,13 @@
 import { Link } from "react-router-dom";
 import { FaArrowRight } from "react-icons/fa";
-import { events } from "@/content/events";
 import { news } from "@/content/group";
-import { eventDateParts } from "@/shared/lib/format";
+import { eventDateParts, eventRangeLabel } from "@/shared/lib/format";
 import Reveal from "@/shared/ui/Reveal";
+import { useAgenda } from "@/shared/hooks/useAgenda";
 
 export function NewsPreview() {
+  const { events } = useAgenda();
+
   return (
     <section className="section news-home">
       <div className="container news-home__layout">
@@ -32,7 +34,7 @@ export function NewsPreview() {
                   </time>
                   <div>
                     <strong>{event.title}</strong>
-                    <span>{event.time}</span>
+                    <span>{event.endDate ? eventRangeLabel(event.date, event.endDate) : event.time ?? event.tag}</span>
                   </div>
                 </Reveal>
               );

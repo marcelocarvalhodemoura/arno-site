@@ -40,12 +40,16 @@ export type Activity = {
 };
 
 export type ScoutEvent = {
-  id: number;
+  id: string | number;
+  /** Data de início, ISO (aaaa-mm-dd). */
   date: string;
+  /** Data de término, ISO, para eventos de mais de um dia. */
+  endDate?: string;
   title: string;
-  description: string;
-  time: string;
+  description?: string;
+  time?: string;
   tag: string;
+  location?: string;
 };
 
 export type NewsItem = { date: string; title: string; excerpt: string };

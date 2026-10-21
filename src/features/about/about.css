@@ -193,6 +193,27 @@
   font-size: 0.78rem;
 }
 
+.team__photo {
+  margin: 0 0 28px;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.team__photo img {
+  display: block;
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  object-position: center 35%;
+}
+
+@media (max-width: 860px) {
+  .team__photo img {
+    height: 260px;
+  }
+}
+
 .team {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -245,5 +266,52 @@
   .lei__grid--five,
   .team {
     grid-template-columns: 1fr;
+  }
+}
+
+.flor {
+  background: var(--paper);
+}
+
+.flor__grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 56px;
+  align-items: center;
+}
+
+.flor__grid .lead {
+  margin-bottom: 16px;
+}
+
+.flor__grid .btn {
+  margin-top: 12px;
+}
+
+.flor__photo {
+  margin: 0;
+}
+
+.flor__photo img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center 30%;
+  border-radius: 28px;
+  box-shadow: var(--shadow);
+}
+
+.flor__photo figcaption {
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+@media (max-width: 860px) {
+  .flor__grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
   }
 }

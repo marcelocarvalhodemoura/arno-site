@@ -23,7 +23,7 @@ export const activities: Activity[] = [
     title: "Trilhas e expedições",
     tag: "Aventura",
     description: "Caminhadas, orientação e desafios progressivos — do parque urbano à serra gaúcha.",
-    image: images.hike,
+    image: images.trailKids,
   },
   {
     id: 4,
@@ -37,7 +37,7 @@ export const activities: Activity[] = [
     title: "Jogos escoteiros",
     tag: "Método",
     description: "O jogo como ferramenta educativa: estratégia, corpo, imaginação e o prazer de estar junto.",
-    image: images.kids,
+    image: images.games,
   },
   {
     id: 6,

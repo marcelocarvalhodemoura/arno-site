@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import {
   FaBullseye,
   FaHeart,
@@ -18,6 +19,7 @@ import {
   team,
   timeline,
 } from "@/content";
+import { florDeLis } from "@/content/flor-de-lis";
 import "./about.css";
 
 export default function About() {
@@ -46,7 +48,9 @@ export default function About() {
           <Reveal delay={0.1} className="about__portrait">
             <div
               className="about__photo"
-              style={{ backgroundImage: `url(${images.kids})` }}
+              role="img"
+              aria-label="Escotistas reunidos diante de um mural de Baden-Powell"
+              style={{ backgroundImage: `url(${images.history})` }}
             />
           </Reveal>
         </div>
@@ -159,6 +163,13 @@ export default function About() {
               <h2>Quem conduz a trilha.</h2>
             </Reveal>
           </div>
+          <figure className="team__photo">
+            <img
+              src={images.leaders}
+              alt="Escotistas e dirigentes do grupo, uniformizados, em um abraço coletivo"
+              loading="lazy"
+            />
+          </figure>
           <div className="team">
             {team.map((member, i) => (
               <Reveal key={member.name} delay={i * 0.08} className="team__card">
@@ -173,6 +184,29 @@ export default function About() {
             Textos oficiais conforme {por.title} ({por.edition}, versão{" "}
             {por.version}, atualizado em {por.updated}). {por.source}.
           </p>
+        </div>
+      </section>
+
+      <section className="section flor">
+        <div className="container flor__grid">
+          <Reveal>
+            <span className="kicker">{florDeLis.kicker}</span>
+            <h2>{florDeLis.title}</h2>
+            {florDeLis.paragraphs.map((p) => (
+              <p key={p} className="lead">
+                {p}
+              </p>
+            ))}
+            <Link to="/participe" className="btn btn-dark">
+              {florDeLis.cta}
+            </Link>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <figure className="flor__photo">
+              <img src={images.florDeLis} alt={florDeLis.photoAlt} loading="lazy" />
+              <figcaption>{florDeLis.caption}</figcaption>
+            </figure>
+          </Reveal>
         </div>
       </section>
     </div>

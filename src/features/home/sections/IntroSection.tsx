@@ -33,7 +33,7 @@ export function IntroSection() {
         </Reveal>
 
         <Reveal delay={0.12} className="intro__visual">
-          <div className="intro__photo" style={{ backgroundImage: `url(${images.camp})` }} />
+          <div className="intro__photo" style={{ backgroundImage: `url(${images.patrolGame})` }} />
           <div className="intro__card">
             <span>Reuniões</span>
             <strong>{site.meetings}</strong>

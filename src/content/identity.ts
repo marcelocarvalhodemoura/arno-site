@@ -5,7 +5,7 @@ export const site: SiteIdentity = {
   shortName: "G.E. Arno Friedrich",
   city: "Porto Alegre · RS",
   neighborhood: "Lindóia",
-  founded: 1991,
+  founded: 1990,
   address: "Travessa Comandante Gustavo Cramer, 90",
   addressExtra: "Junto ao Lindóia Tênis Clube",
   phone: "(51) 3330-9784",

@@ -20,7 +20,7 @@ export const news: NewsItem[] = [
 
 export const timeline: TimelineItem[] = [
   {
-    year: "1991",
+    year: "1990",
     title: "A fundação",
     text: "Nasce o Grupo Escoteiro Arno Friedrich em Porto Alegre, com o propósito de oferecer aos jovens uma educação pelo movimento, pela natureza e pelo exemplo.",
   },

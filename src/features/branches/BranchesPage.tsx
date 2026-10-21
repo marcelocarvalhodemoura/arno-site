@@ -3,7 +3,7 @@ import { FaArrowRight } from "react-icons/fa";
 import { useEffect } from "react";
 import PageHero from "@/shared/ui/PageHero";
 import Reveal from "@/shared/ui/Reveal";
-import { images, ramos } from "@/content";
+import { branchPhotos, images, ramos } from "@/content";
 import "./branches.css";
 
 export default function Branches() {
@@ -46,8 +46,11 @@ export default function Branches() {
             <Reveal delay={0.1} className="branch__panel">
               <div
                 className="branch__photo"
+                role="img"
+                aria-label={branchPhotos[ramo.id]?.alt ?? ramo.branch}
                 style={{
-                  backgroundImage: `url(${i % 2 ? images.summit : images.lake})`,
+                  backgroundImage: `url(${branchPhotos[ramo.id]?.src ?? images.lake})`,
+                  backgroundPosition: branchPhotos[ramo.id]?.position ?? "center",
                 }}
               />
               <div className="branch__chip" style={{ background: ramo.color }}>
